@@ -1,0 +1,42 @@
+.login-page{
+  color: grey;
+  font-size: 18px;
+}
+
+.left-panel{
+  /*background-color: var(--primary-color);*/
+  height: 100%;
+  background-image: url("../../../../assets/img/login_img.png");
+  background-size: 100vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.right-panel{
+  background-color: white;
+  height: 100vh;
+}
+
+.right-panel a{
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.input-group-text{
+  background-color: var(--primary-color);
+  color: white;
+}
+
+input[type=text]{
+  border-radius: 20px;
+}
+
+.logo{
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.title{
+  color: var(--primary-color);
+}
