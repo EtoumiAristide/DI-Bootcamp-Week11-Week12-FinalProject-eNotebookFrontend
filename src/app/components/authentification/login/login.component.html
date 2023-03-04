@@ -1,66 +1,70 @@
-<div class="container-fluid mx-0 login-page">
+<div class="container-fluid login-panel">
   <div class="row">
-    <div class="col-12 d-flex justify-content-center align-items-center">
-      <div class="col-md-6 left-panel d-xs-none">
-       <h1 class="logo">eNoteBook Santé</h1>
-      </div>
-      <div class="col-md-6 right-panel d-flex align-items-center justify-content-center ps-5 ">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="title">Connectez Vous</h1>
-          </div>
-          <hr>
-          <div class="col-md-12">
-            <p>Pas encore de compte? <a href="#">S'enregistrer</a></p>
-          </div>
-          <div class="col-12">
-            <p>Cele ne prendra que quelques minutes</p>
+    <div class="col-12 d-flex justify-content-center align-items-center right-panel">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h1>eNoteBook Santé</h1>
+              <p>Votre carnet de santé électronique partout avec vous</p>
+              <p>Pas encore de compte ? <a routerLink="/authentification/register">Créer un compte</a></p>
+            </div>
+            <hr>
           </div>
           <div class="row">
-            <div class="col-md-8 col-sm-12">
+            <div class="col-md-12">
               <form action="">
-                <div class="mb-3">
-                  <div class="form-group ">
-                    <label for="login" class="form-label">Nom d'utilisateur</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="login" placeholder="Entrez votre nom d'utilisateur">
-                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <div class="form-group mb-3 ">
+                  <label for="login" class="form-label">Nom d'utilisateur</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="login"
+                           placeholder="Entrez votre nom d'utilisateur">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="password" class="form-label">Mot de passe</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="password"
+                           placeholder="Entrez votre mot de passe">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row d-flex align-items-baseline">
+                    <div class="col-md-6 align-items-start justify-content-start">
+                      <input type="checkbox" name="rememberMe" id="rememberMe">
+                      <label for="rememberMe" class="form-label">&nbsp;Se souvenir de moi</label>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-end justify-content-center">
+                      <a href="#">Mot de passe oublié?</a>
                     </div>
                   </div>
                 </div>
-                <div class="mb-3">
-                  <div class="form-group ">
-                    <label for="password" class="form-label">Mot de passe</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="password"
-                             placeholder="Entrez votre nom d'utilisateur">
-                      <span class="input-group-text"><i class="fas fa-key"></i></span>
-                    </div>
+                <div class="form-group mt-4">
+                  <button type="submit" class="col-12 btn btn-connect">Se Connecter</button>
+                </div>
+
+                <div class="row mt-2 mb-2">
+                  <div class="col-md-12">
+                    <span>Ou Se connecter avec</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 d-flex">
+                    <button class="btn btn-facebook me-3"><i class="fa-brands fa-facebook"></i></button>
+                    <button class="btn btn-google"><i class="fa-brands fa-google"></i></button>
+
                   </div>
                 </div>
               </form>
             </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-8 d-flex align-items-center justify-content-center">
-              <div class="col-6">
-                <button type="submit" class="btn btn-primary">Se connecter</button>
-              </div>
-              <div class="col-6 d-flex align-items-end justify-content-end">
-                <div class="text-center">
-                  <input type="checkbox" name="rememberMe" id="remmberMe" value="Se souvenir de moi"/>
-                  <label for="remmberMe">&nbsp;Se souvenir de moi</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-8 align-items-center justify-content-center"><p class="text-center"><a href="#">Mot de
-              passe oublié?</a></p></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

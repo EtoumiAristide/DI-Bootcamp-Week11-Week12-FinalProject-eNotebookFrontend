@@ -1,42 +1,112 @@
-.login-page{
-  color: grey;
-  font-size: 18px;
+.login-panel {
+  color: #888888;
+  /*background-color: var(--bg-color);*/
+  font-family: 'Roboto', sans-serif;
+  /*Overlay background source: https://dev.to/ellen_dev/two-ways-to-achieve-an-image-colour-overlay-with-css-eio*/
+  background: black;
+  overflow: hidden;
+  background: var(--primary-color);  /* fallback colour. Make sure this is just one solid colour. */
+  background: -webkit-linear-gradient(rgba(29, 38, 113, 0.5), rgba(195, 55, 100, 0.5));
+  background: linear-gradient(rgba(29, 38, 113, 0.5), rgba(195, 55, 100, 0.5)); /* The least supported option. */
 }
 
-.left-panel{
-  /*background-color: var(--primary-color);*/
-  height: 100%;
+.right-panel {
+  height: 100vh;
   background-image: url("../../../../assets/img/login_img.png");
-  background-size: 100vh;
   background-attachment: fixed;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
-.right-panel{
-  background-color: white;
-  height: 100vh;
+.card {
+  width: 450px;
+  border: none;
+  border-radius: 20px;
+  max-width: 500px;
+  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2);
 }
 
-.right-panel a{
+
+h1 {
+  color: var(--primary-color);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form .form-group {
+  width: 90%;
+}
+
+.input-group-text {
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 20px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+input[type=text] {
+  border-radius: 20px;
+  color: #888888;
+}
+
+hr{
+  color: var(--primary-color);
+}
+
+.btn-connect{
+  border: none;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+}
+.btn-connect:hover{
+  background-color: var(--primary-color);
+  opacity: 0.8;
+  color: white;
+}
+
+a{
   text-decoration: none;
   color: var(--primary-color);
 }
 
-.input-group-text{
-  background-color: var(--primary-color);
+.btn-facebook{
+  border: none;
+  background-color: #3B5998;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+}
+.btn-facebook:hover{
+  background-color: #3B5998;
+  opacity: 0.8;
+  color: white;
+}
+.btn-google{
+  border: none;
+  background-color: #EA4335;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+}
+.btn-google:hover{
+  background-color: #EA4335;
+  opacity: 0.8;
   color: white;
 }
 
-input[type=text]{
-  border-radius: 20px;
-}
-
-.logo{
-  color: white;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.title{
-  color: var(--primary-color);
+.text-center p{
+  font-size: 14px;
 }

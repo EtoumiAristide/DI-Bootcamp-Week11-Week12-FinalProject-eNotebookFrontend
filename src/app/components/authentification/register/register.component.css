@@ -1,0 +1,169 @@
+.register-panel {
+  color: #888888;
+  /*background-color: var(--bg-color);*/
+  font-family: 'Roboto', sans-serif;
+  /*Overlay background source: https://dev.to/ellen_dev/two-ways-to-achieve-an-image-colour-overlay-with-css-eio*/
+  background: black;
+  overflow: hidden;
+  background: var(--primary-color); /* fallback colour. Make sure this is just one solid colour. */
+  background: -webkit-linear-gradient(rgba(29, 38, 113, 0.5), rgba(195, 55, 100, 0.5));
+  background: linear-gradient(rgba(29, 38, 113, 0.5), rgba(195, 55, 100, 0.5)); /* The least supported option. */
+}
+
+.right-panel {
+  height: 100vh;
+  background-image: url("../../../../assets/img/login_img.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card {
+  border: none;
+  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2);
+  width: 50%;
+}
+
+.card-header {
+  background-color: white;
+}
+
+.card-body {
+  overflow-y: scroll;
+  max-height: 300px;
+}
+
+/*.card-body::-webkit-scrollbar {
+  display: none;
+}
+
+.card-body{
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}*/
+
+h1 {
+  color: var(--secondary-color);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-group-text {
+  background-color: var(--primary-color);
+  color: white;
+  /*border-radius: 20px;*/
+}
+
+form label {
+  font-weight: bold;
+}
+
+input[type=text] {
+  /*border-radius: 20px;*/
+  color: #888888;
+}
+
+hr {
+  color: var(--primary-color);
+}
+
+.btn-connect {
+  border: none;
+  background-color: var(--secondary-color);
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-connect:hover {
+  background-color: var(--secondary-color);
+  opacity: 0.8;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.btn-facebook {
+  border: none;
+  background-color: #3B5998;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-facebook:hover {
+  background-color: #3B5998;
+  opacity: 0.8;
+  color: white;
+}
+
+.btn-google {
+  border: none;
+  background-color: #EA4335;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-google:hover {
+  background-color: #EA4335;
+  opacity: 0.8;
+  color: white;
+}
+
+.text-center p {
+  font-size: 14px;
+}
+
+/*Source media queries: https://www.w3schools.com/css/css_rwd_mediaqueries.asp*/
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
+
+  .card-body {
+    max-height: 400px
+  }
+
+  h1 {
+    font-size: 15px;
+  }
+
+  .label-cdu {
+    font-size: 12px;
+  }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .card-body {
+    max-height: 430px
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

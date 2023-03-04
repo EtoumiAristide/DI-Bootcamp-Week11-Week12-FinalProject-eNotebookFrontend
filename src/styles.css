@@ -8,9 +8,10 @@
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap");
 
-:root{
-  --primary-color: #086BEF;
-  --login-text-color:#BBC0B6
+:root {
+  --bg-color: #F6F7FC;
+  --primary-color: #0283FE;
+  --secondary-color: #00CEC8;
 }
 
 body {

@@ -1,1 +1,117 @@
-<p>register works!</p>
+<div class="container-fluid register-panel">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center align-items-center right-panel">
+      <div class="card">
+        <div class="card-header text-center">
+          <h1>eNoteBook Santé | Creation de compte</h1>
+          <p>Cela ne prend que quelques minutes</p>
+          <p>Vous avez déjà un compte ? <a routerLink="/authentification/">Connectez vous</a></p>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <form class="row">
+                <div class="row mt-2 mb-2">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="nom" class="form-label">Nom</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="prenom" class="form-label">Prénoms</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Entrez votre prénom">
+                        <span class="input-group-text"><i class="fas fa-users"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-2 mb-2">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="tel1" class="form-label">Numéro de téléphone</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="tel1"
+                               placeholder="Entrez votre quartier">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="login" class="form-label">Nom d'utilisateur</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="login"
+                               placeholder="Entrez votre quartier">
+                        <span class="input-group-text"><i
+                          class="fas fa-user-secret"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-2 mb-2">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="password" class="form-label">Mot de passe</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="password"
+                               placeholder="Entrez votre mot de passe">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="passwordConfirm" class="form-label">Confimation de Mot de
+                        passe</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="passwordConfirm"
+                               placeholder="Confirmez votre quartier">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-2 mb-2">
+                  <div class="form-group">
+                    <div class="col-md-12 align-items-start justify-content-start">
+                      <input type="checkbox" name="rememberMe" id="rememberMe">
+                      <label for="rememberMe" class="form-label label-cdu">&nbsp;J'ai lu et acccepté <a
+                        href="#">les conditions d'utilisation</a></label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-2 mb-2">
+                  <div class="col">
+                    <div class="form-group mt-4">
+                      <button type="submit" class="col-12 btn btn-connect">Créér mon compte</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-2 mb-2">
+                  <div class="col-md-12 d-flex align-items-center justify-content-center">
+                    <span>Ou S'enregistrer avec</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 d-flex align-items-center justify-content-center">
+                    <button class="btn btn-facebook me-3"><i
+                      class="fa-brands fa-facebook"></i></button>
+                    <button class="btn btn-google"><i class="fa-brands fa-google"></i></button>
+
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
