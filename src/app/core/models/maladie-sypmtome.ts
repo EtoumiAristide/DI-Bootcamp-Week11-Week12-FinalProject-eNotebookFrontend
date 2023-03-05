@@ -1,7 +1,13 @@
 import {Maladie} from "./maladie";
 import {Symptome} from "./symptome";
 
-export interface MaladieSypmtome {
-  maladie: Maladie,
-  symptome: Symptome,
+export class MaladieSypmtome {
+  maladie: Maladie;
+  symptome: Symptome;
+
+
+  constructor() {
+    this.maladie = new Maladie();
+    this.symptome = new Symptome();
+  }
 }

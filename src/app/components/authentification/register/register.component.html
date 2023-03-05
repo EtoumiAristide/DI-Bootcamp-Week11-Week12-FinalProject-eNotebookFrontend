@@ -5,19 +5,23 @@
         <div class="card-header text-center">
           <h1>eNoteBook Santé | Creation de compte</h1>
           <p>Cela ne prend que quelques minutes</p>
-          <p>Vous avez déjà un compte ? <a routerLink="/authentification/">Connectez vous</a></p>
+          <p>Vous avez déjà un compte ? <a routerLink="/authentification/login">Connectez vous</a></p>
         </div>
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <form class="row">
+              <form #userForm="ngForm" (ngSubmit)="userForm.valid && createCompteUser(userForm)" class="row">
                 <div class="row mt-2 mb-2">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="nom" class="form-label">Nom</label>
                       <div class="input-group">
-                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom">
+                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom"
+                               required [(ngModel)]="physique.nom" #nom="ngModel">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <div [hidden]="nom.valid || nom.pristine" class="alert alert-danger">
+                        Ce champ est obligatoire
                       </div>
                     </div>
                   </div>
@@ -25,8 +29,13 @@
                     <div class="form-group">
                       <label for="prenom" class="form-label">Prénoms</label>
                       <div class="input-group">
-                        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Entrez votre prénom">
+                        <input type="text" class="form-control" id="prenom" name="prenom"
+                               placeholder="Entrez votre prénom"
+                               required [(ngModel)]="physique.prenoms" #prenom="ngModel">
                         <span class="input-group-text"><i class="fas fa-users"></i></span>
+                      </div>
+                      <div [hidden]="prenom.valid || prenom.pristine" class="alert alert-danger">
+                        Ce champ est obligatoire
                       </div>
                     </div>
                   </div>
@@ -36,9 +45,12 @@
                     <div class="form-group">
                       <label for="tel1" class="form-label">Numéro de téléphone</label>
                       <div class="input-group">
-                        <input type="text" class="form-control" id="tel1"
-                               placeholder="Entrez votre quartier">
+                        <input type="text" class="form-control" id="tel1" placeholder="Entrez votre quartier"
+                               name="tel1" required [(ngModel)]="physique.tel1" #tel1="ngModel">
                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                      </div>
+                      <div [hidden]="tel1.valid || tel1.pristine" class="alert alert-danger">
+                        Ce champ est obligatoire
                       </div>
                     </div>
                   </div>
@@ -46,10 +58,14 @@
                     <div class="form-group">
                       <label for="login" class="form-label">Nom d'utilisateur</label>
                       <div class="input-group">
-                        <input type="text" class="form-control" id="login"
-                               placeholder="Entrez votre quartier">
+                        <input type="text" class="form-control" id="login" name="login"
+                               placeholder="Entrez votre login"
+                               required [(ngModel)]="compteUtilisateur.login" #login="ngModel">
                         <span class="input-group-text"><i
                           class="fas fa-user-secret"></i></span>
+                      </div>
+                      <div [hidden]="login.valid || login.pristine" class="alert alert-danger">
+                        Ce champ est obligatoire
                       </div>
                     </div>
                   </div>
@@ -59,9 +75,13 @@
                     <div class="form-group">
                       <label for="password" class="form-label">Mot de passe</label>
                       <div class="input-group">
-                        <input type="text" class="form-control" id="password"
-                               placeholder="Entrez votre mot de passe">
+                        <input type="password" class="form-control" id="password"
+                               placeholder="Entrez votre mot de passe" required
+                               name="password" [(ngModel)]="compteUtilisateur.password" #password="ngModel">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
+                      </div>
+                      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                        Ce champ est obligatoire
                       </div>
                     </div>
                   </div>
@@ -71,8 +91,18 @@
                         passe</label>
                       <div class="input-group">
                         <input type="text" class="form-control" id="passwordConfirm"
-                               placeholder="Confirmez votre quartier">
+                               placeholder="Confirmez votre mot de passe" required
+                               name="passwordConfirm" [(ngModel)]="compteUtilisateur.passwordConfirm"
+                               #passwordConfirm="ngModel">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
+                      </div>
+                      <div [hidden]="passwordConfirm.valid || passwordConfirm.pristine" class="alert alert-danger">
+                        Ce champ est obligatoire
+                      </div>
+                      <div
+                        [hidden]="password.value!=null && password.value.trim()!='' && passwordConfirm.value!=null && passwordConfirm.value.trim()!='' && checkPassword()"
+                        class="alert alert-danger">
+                        Les mots de passe ne correspondent pas
                       </div>
                     </div>
                   </div>
@@ -80,16 +110,23 @@
                 <div class="row mt-2 mb-2">
                   <div class="form-group">
                     <div class="col-md-12 align-items-start justify-content-start">
-                      <input type="checkbox" name="rememberMe" id="rememberMe">
+                      <input type="checkbox" name="rememberMe" id="rememberMe" required
+                             [(ngModel)]="compteUtilisateur.checkCDU" #checkCDU="ngModel">
                       <label for="rememberMe" class="form-label label-cdu">&nbsp;J'ai lu et acccepté <a
                         href="#">les conditions d'utilisation</a></label>
+                    </div>
+                    <div [hidden]="checkCDU.valid || checkCDU.untouched" class="alert alert-danger">
+                      Ce champ est obligatoire
                     </div>
                   </div>
                 </div>
                 <div class="row mt-2 mb-2">
                   <div class="col">
                     <div class="form-group mt-4">
-                      <button type="submit" class="col-12 btn btn-connect">Créér mon compte</button>
+                      <button type="submit" [disabled]="!userForm.form.valid && checkPassword()"
+                              class="col-12 btn btn-connect">Créér mon
+                        compte
+                      </button>
                     </div>
                   </div>
                 </div>
