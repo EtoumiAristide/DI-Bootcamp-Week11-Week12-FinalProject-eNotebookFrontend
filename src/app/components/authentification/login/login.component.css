@@ -55,7 +55,7 @@ form label {
   font-weight: bold;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
   border-radius: 20px;
   color: #888888;
 }

@@ -8,6 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('./components/authentification/authentification.module').then(m => m.AuthentificationModule),
   },
   {
+    path: 'dashboard',
+    loadChildren: () => import('./components/dashboard/dashboard.module').then(m => m.DashboardModule),
+  },
+  {
     path: '',
     redirectTo: 'authentification',
     pathMatch: "full"
@@ -16,7 +20,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

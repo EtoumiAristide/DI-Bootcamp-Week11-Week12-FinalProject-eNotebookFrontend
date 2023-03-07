@@ -10,14 +10,14 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <form #userForm="ngForm" (ngSubmit)="userForm.valid && createCompteUser(userForm)" class="row">
+              <form #userForm="ngForm" (ngSubmit)="createCompteUser(userForm)" class="row">
                 <div class="row mt-2 mb-2">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="nom" class="form-label">Nom</label>
                       <div class="input-group">
                         <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom"
-                               required [(ngModel)]="physique.nom" #nom="ngModel">
+                               required [(ngModel)]="register.nom" #nom="ngModel">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                       </div>
                       <div [hidden]="nom.valid || nom.pristine" class="alert alert-danger">
@@ -31,7 +31,7 @@
                       <div class="input-group">
                         <input type="text" class="form-control" id="prenom" name="prenom"
                                placeholder="Entrez votre prénom"
-                               required [(ngModel)]="physique.prenoms" #prenom="ngModel">
+                               required [(ngModel)]="register.prenom" #prenom="ngModel">
                         <span class="input-group-text"><i class="fas fa-users"></i></span>
                       </div>
                       <div [hidden]="prenom.valid || prenom.pristine" class="alert alert-danger">
@@ -46,7 +46,7 @@
                       <label for="tel1" class="form-label">Numéro de téléphone</label>
                       <div class="input-group">
                         <input type="text" class="form-control" id="tel1" placeholder="Entrez votre quartier"
-                               name="tel1" required [(ngModel)]="physique.tel1" #tel1="ngModel">
+                               name="tel1" required [(ngModel)]="register.tel" #tel1="ngModel">
                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                       </div>
                       <div [hidden]="tel1.valid || tel1.pristine" class="alert alert-danger">
@@ -60,7 +60,7 @@
                       <div class="input-group">
                         <input type="text" class="form-control" id="login" name="login"
                                placeholder="Entrez votre login"
-                               required [(ngModel)]="compteUtilisateur.login" #login="ngModel">
+                               required [(ngModel)]="register.login" #login="ngModel">
                         <span class="input-group-text"><i
                           class="fas fa-user-secret"></i></span>
                       </div>
@@ -77,7 +77,7 @@
                       <div class="input-group">
                         <input type="password" class="form-control" id="password"
                                placeholder="Entrez votre mot de passe" required
-                               name="password" [(ngModel)]="compteUtilisateur.password" #password="ngModel">
+                               name="password" [(ngModel)]="register.password" #password="ngModel">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                       </div>
                       <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
@@ -92,7 +92,7 @@
                       <div class="input-group">
                         <input type="text" class="form-control" id="passwordConfirm"
                                placeholder="Confirmez votre mot de passe" required
-                               name="passwordConfirm" [(ngModel)]="compteUtilisateur.passwordConfirm"
+                               name="passwordConfirm" [(ngModel)]="register.passwordConfirmation"
                                #passwordConfirm="ngModel">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                       </div>
@@ -111,7 +111,7 @@
                   <div class="form-group">
                     <div class="col-md-12 align-items-start justify-content-start">
                       <input type="checkbox" name="rememberMe" id="rememberMe" required
-                             [(ngModel)]="compteUtilisateur.checkCDU" #checkCDU="ngModel">
+                             [(ngModel)]="register.checkCDU" #checkCDU="ngModel">
                       <label for="rememberMe" class="form-label label-cdu">&nbsp;J'ai lu et acccepté <a
                         href="#">les conditions d'utilisation</a></label>
                     </div>
@@ -123,9 +123,10 @@
                 <div class="row mt-2 mb-2">
                   <div class="col">
                     <div class="form-group mt-4">
-                      <button type="submit" [disabled]="!userForm.form.valid && checkPassword()"
-                              class="col-12 btn btn-connect">Créér mon
-                        compte
+                      <button type="submit" [disabled]="!userForm.form.valid && checkPassword() && !loadingBtn"
+                              class="col-12 btn btn-connect">
+                        <i class="fa" [ngClass]="{'fa-spin fa-spinner': loadingBtn, 'fa-check': !loadingBtn}"></i>
+                        {{textButton}}
                       </button>
                     </div>
                   </div>
