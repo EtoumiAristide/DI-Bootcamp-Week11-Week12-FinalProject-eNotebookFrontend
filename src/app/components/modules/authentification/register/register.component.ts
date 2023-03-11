@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
-import {CompteUtilisateur} from "../../../core/models/compte-utilisateur";
-import {CompteUtilisateurApiService} from "../../../core/services/compte-utilisateur-api.service";
-import {TypeCompte} from "../../../core/models/type-compte";
-import {Physique} from "../../../core/models/physique";
-import {TypeCompteApiService} from "../../../core/services/type-compte-api.service";
-import {RegisterData} from "../../../core/models/register-data";
+import {CompteUtilisateur} from "../../../../core/models/compte-utilisateur";
+import {CompteUtilisateurApiService} from "../../../../core/services/compte-utilisateur-api.service";
+import {TypeCompte} from "../../../../core/models/type-compte";
+import {Physique} from "../../../../core/models/physique";
+import {TypeCompteApiService} from "../../../../core/services/type-compte-api.service";
+import {RegisterData} from "../../../../core/models/register-data";
 import {Router} from "@angular/router";
-import {ToastService} from "../../../core/services/toast.service";
+import {ToastService} from "../../../../core/services/toast.service";
 
 @Component({
   selector: 'app-register',
@@ -72,7 +72,6 @@ export class RegisterComponent {
     this._compteUtilisateurApiService.register(this.register).subscribe({
       next: response => {
         console.log(response);
-        //Todo: Afficher notification succes
         this._toastServive.success("Compte créé avec succès \nVous serez rediriger vers la page de connexion", "Données enregistrée").onHidden.subscribe(() => {
           this.textButton = this.textBtnEnregistrement.txtBtnSave
           this.loadingBtn = false;
@@ -81,7 +80,6 @@ export class RegisterComponent {
       },
       error: error => {
         console.error("There is an error !", error);
-        //TODO: Afficher toast notification dans le composant en cas d'erreur du serveur lors du chargement
         this._toastServive.error("Une erreur est survenue lors de l'enregistrement des données \nVeuillez reéssayer plus tard ou contacter l'administrateur", "Données non enregistrées").onHidden.subscribe(() => {
           this.textButton = this.textBtnEnregistrement.txtBtnSave
           this.loadingBtn = false;

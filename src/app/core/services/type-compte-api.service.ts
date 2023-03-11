@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ApiRequestService} from "./api-request.service";
+import {url_path} from "../../constants/app.constant";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,6 @@ export class TypeCompteApiService {
   }
 
   getAll() {
-    return this.apiRequestService.get('/type-compte');
+    return this.apiRequestService.get(url_path.TYPE_COMPTE_BASE);
   }
 }

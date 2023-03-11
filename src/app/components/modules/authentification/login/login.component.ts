@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
-import {RegisterData} from "../../../core/models/register-data";
-import {CompteUtilisateurApiService} from "../../../core/services/compte-utilisateur-api.service";
+import {RegisterData} from "../../../../core/models/register-data";
+import {CompteUtilisateurApiService} from "../../../../core/services/compte-utilisateur-api.service";
 import {Router} from "@angular/router";
-import {ToastService} from "../../../core/services/toast.service";
+import {ToastService} from "../../../../core/services/toast.service";
 
 @Component({
   selector: 'app-login',

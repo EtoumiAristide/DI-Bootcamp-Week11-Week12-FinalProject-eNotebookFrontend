@@ -5,11 +5,11 @@ import {NotFoundComponent} from "./components/not-found/not-found.component";
 const routes: Routes = [
   {
     path: 'authentification',
-    loadChildren: () => import('./components/authentification/authentification.module').then(m => m.AuthentificationModule),
+    loadChildren: () => import('./components/modules/authentification/authentification.module').then(m => m.AuthentificationModule),
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./components/dashboard/dashboard.module').then(m => m.DashboardModule),
+    loadChildren: () => import('./components/modules/dashboard/dashboard.module').then(m => m.DashboardModule),
   },
   {
     path: '',

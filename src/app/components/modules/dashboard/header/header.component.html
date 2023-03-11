@@ -1,0 +1,49 @@
+<header class="navbar sticky-top navbar-light bg-white  flex-md-nowrap p-0 shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand  bg-white col-md-3 col-lg-2 logo" href="#">e-NoteBook Sante</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation"
+            (click)="setMenuCollapsed()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="form-group d-flex form-search">
+      <div class="d-flex flex-grow-1 align-items-center justify-content-center search-bloc">
+        <i class="fa fa-search has-search align-self-center"></i>
+        <input type="text"
+               class="form-control align-self-center form-control-light w-50 rounded-0 border-0 input-search"
+               placeholder="Search..."
+               aria-label="Search">
+      </div>
+
+      <!-- Avatar -->
+      <div ngbDropdown class="dropdown me-3 p-2 icon-profile align-self-center">
+        <a ngbDropdownToggle class="dropdown-toggle d-flex align-items-center hidden-arrow user-name" href="#"
+           (click)="$event.preventDefault()"
+           id="navbarDropdownMenuAvatar"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" width="32" height="32"
+               class="rounded-circle me-2" alt="Black and White Portrait of a Man"/>
+          <span class="pe-2">User Name </span>
+        </a>
+        <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end dropdown-menu-light border-0 text-small shadow"
+            aria-labelledby="navbarDropdownMenuAvatar">
+          <li>
+            <a ngbDropdownItem class="dropdown-item" href="#"><i class="fas fa-user"></i>&nbsp; Mon Profil</a>
+          </li>
+          <li>
+            <a ngbDropdownItem class="dropdown-item" href="#"><i class="fas fa-cog"></i>&nbsp; Reglages</a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <a ngbDropdownItem class="dropdown-item" href="#"><i class="fas fa-power-off"></i>&nbsp; Déconnexion</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</header>
