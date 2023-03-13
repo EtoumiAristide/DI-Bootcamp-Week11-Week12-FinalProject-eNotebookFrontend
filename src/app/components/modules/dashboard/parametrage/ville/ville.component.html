@@ -1,0 +1,133 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Villes</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#" [routerLink]="'/dashboard'">Accueil</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#" [routerLink]="'/dashboard/parametrage/ville'">Paramétrage</a>
+        </li>
+        <li class="breadcrumb-item breadcrumb-item-active" aria-current="page">
+          Villes
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="row d-flex align-items-center justify-content-between mb-3 mt-2">
+  <div class="col-md-6 col-sm-12">
+    <span class="h4 text-primary">Liste des Villes (Total : {{villeList.length}})</span>
+  </div>
+  <div class="col-md-6 col-sm-12">
+    <div class="row d-flex">
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-2 align-self-end">
+        <div class="form-group">
+          <label for="search"></label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input type="text" id="search" #searchInput name="search" placeholder="Rechercher une ville..."
+                   (input)="filterData(searchInput)" class="form-control me-2">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-2 align-self-end">
+        <button class="btn btn-outline-primary" (click)="open(content)"><i class="fas fa-plus"></i>
+          Ajouter une ville
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row g-4 mb-5">
+  <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" *ngFor="let ville of villeList">
+    <div class="card h-100 text-center border-0 shadow">
+      <img src="assets/img/ville_flags/ville_ic.jpg" height="120px" class="card-img-top" alt="flag">
+      <div class="card-body">
+        <h5 class="card-title">{{ville.nom}}</h5>
+        <span class="text-body">{{ville.pays != undefined ? '(' + ville.pays.nom + ')' : ''}}</span>
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        <button class="btn btn-primary me-2 rounded-pill" (click)="open(content, ville)"><i
+          class="fas fa-edit"></i>
+        </button>
+        <button class="btn btn-danger rounded-pill" (click)="open(content, ville)"><i class="fas fa-remove"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<table class="table table-responsive table-bordered table-striped">
+  <thead>
+  <tr>
+    <td>#</td>
+    <td>Nom</td>
+    <td>Pays</td>
+    <td>Actions</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let ville of villeList, let i=index">
+    <td>{{i + 1}}</td>
+    <td>{{ville.nom}}</td>
+    <td>{{ville.pays.nom}}</td>
+    <td>
+      <button class="btn btn-primary me-2 rounded-pill" (click)="open(content, ville)"><i
+        class="fas fa-edit"></i>
+      </button>
+      <button class="btn btn-danger rounded-pill" (click)="open(content, ville)"><i class="fas fa-remove"></i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>-->
+
+<!-- Form add and update via modal -->
+<ng-template #content let-modal>
+  <form #addvilleForm="ngForm" (ngSubmit)="save(addvilleForm)">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{txtModalHeader}}</h4>
+      <button type="button" class="btn-close" aria-label="Close"
+              (click)="_modalService.dismissAll('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group mb-3 ">
+        <label for="nom" class="form-label">Nom</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="nom"
+                 placeholder="Entrez le nom du ville" name="nom"
+                 required [(ngModel)]="villeForm.nom" #nom="ngModel">
+        </div>
+        <div [hidden]="nom.valid || nom.pristine" class="alert alert-danger">
+          Ce champ est obligatoire
+        </div>
+
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="pays" class="form-label">Pays</label>
+        <div class="input-group">
+          <select class="form-select" aria-label="Default select example" name="pays" id="pays"
+                  required [(ngModel)]="villeForm.pays"
+                  #pays="ngModel">
+            <option selected="{{villeForm.pays==undefined ? 'selected' : ''}}">Sélectionnez le pays</option>
+            <option *ngFor="let paysData of paysList" value="{{paysData | json}}"
+                    selected="{{villeForm.pays!=undefined && villeForm.pays.id==paysData.id}}">{{paysData.nom}}</option>
+          </select>
+        </div>
+        <div [hidden]="!controlSelectionPays(pays) || pays.pristine" class="alert alert-danger">
+          Ce champ est obligatoire
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" [disabled]="!addvilleForm.form.valid && !loadingBtn || controlSelectionPays(pays)"
+              class="col-12 btn btn-success rounded-2">
+        <i class="fa" [ngClass]="{'fa-spin fa-spinner': loadingBtn, 'fa-check': !loadingBtn}"></i>
+        {{textButton}}
+      </button>
+    </div>
+  </form>
+</ng-template>

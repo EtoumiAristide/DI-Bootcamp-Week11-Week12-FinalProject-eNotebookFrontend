@@ -1,64 +1,83 @@
+<div class="position-sticky pt-3 sidebar-sticky">
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="'.'" [routerLinkActive]="['active']"
+         [routerLinkActiveOptions]="{exact:true}">
+        <img class="img img-thumbnail rounded-circle icon" src="assets/img/medical-care.png"
+             alt="">
+        Accueil
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="'/dashboard/consultation'" [routerLinkActive]="['active']"
+         [routerLinkActiveOptions]="{exact:true}">
+        <img class="img img-thumbnail rounded-circle icon" src="assets/img/doctor-patient.png"
+             alt="">
+        Consultations
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="'/dashboard/patient'" [routerLinkActive]="['active']"
+         [routerLinkActiveOptions]="{exact:true}">
+        <img class="img img-thumbnail rounded-circle icon" src="assets/img/examination.png"
+             alt="">
+        Patient
+      </a>
+    </li>
+    <li class="nav-item">
+      <div (click)="setIsCollpased()"
+           [attr.aria-expanded]="!isCollapsed">
+        <a class="nav-link" href="#" [routerLink]="'.'" data-bs-toggle="collapse"
+           data-bs-target="#submenu">
+          <img class="img img-thumbnail rounded-circle icon" src="assets/img/medical-record.png"
+               alt="">
+          Parametrage ▾
+        </a>
+      </div>
+      <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="collapse">
+        <ul class="list-unstyled flex-column pl-3">
+          <li class="nav-item"><a class="nav-link submenu" href="#"
+                                  [routerLink]="'/dashboard/parametrage/pays'" [routerLinkActive]="['active']"
+                                  [routerLinkActiveOptions]="{exact:true}">Pays</a>
+          </li>
+          <li class="nav-item"><a class="nav-link submenu" href="#"
+                                  [routerLink]="'/dashboard/parametrage/ville'"
+                                  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">Villes</a>
+          </li>
+          <li class="nav-item"><a class="nav-link submenu" href="#" [routerLink]="'/dashboard/parametrage/commune'"
+                                  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">Communes</a>
+          </li>
+          <li class="nav-item"><a class="nav-link submenu" href="#"
+                                  [routerLink]="'/dashboard/parametrage/type-etablissement'"
+                                  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">Types
+            Etablissement</a></li>
+          <li class="nav-item"><a class="nav-link submenu" href="#"
+                                  [routerLink]="'/dashboard/parametrage/etablissement'" [routerLinkActive]="['active']"
+                                  [routerLinkActiveOptions]="{exact:true}">Etablissement</a>
+          </li>
+          <li class="nav-item"><a class="nav-link submenu" href="#" [routerLink]="'/dashboard/parametrage/medecin'"
+                                  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">Medecin</a>
+          </li>
+          <li class="nav-item"><a class="nav-link submenu" href="#" [routerLink]="'/dashboard/parametrage/specialite'"
+                                  [routerLinkActive]="['active']"
+                                  [routerLinkActiveOptions]="{exact:true}">Spécialités</a>
+          </li>
+          <li class="nav-item"><a class="nav-link submenu" href="#" [routerLink]="'/dashboard/parametrage/maladie'"
+                                  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">Maladies</a>
+          </li>
+          <li class="nav-item"><a class="nav-link submenu" href="#" [routerLink]="'/dashboard/parametrage/symptome'"
+                                  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">Symptomes</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="'/dashboard/aide'" [routerLinkActive]="['active']"
+         [routerLinkActiveOptions]="{exact:true}">
+        <img class="img img-thumbnail rounded-circle icon" src="assets/img/medical-history.png" alt="">
+        Aide
+      </a>
+    </li>
 
-  <div class="position-sticky pt-3 sidebar-sticky">
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#" [routerLink]="'.'">
-          <img class="img img-thumbnail rounded-circle icon" src="assets/img/medical-care.png"
-               alt="">
-          Accueil
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" [routerLink]="'.'">
-          <img class="img img-thumbnail rounded-circle icon" src="assets/img/doctor-patient.png"
-               alt="">
-          Consultations
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" [routerLink]="'.'">
-          <img class="img img-thumbnail rounded-circle icon" src="assets/img/examination.png"
-               alt="">
-          Patient
-        </a>
-      </li>
-      <li class="nav-item">
-        <div (click)="setIsCollpased()"
-             [attr.aria-expanded]="!isCollapsed">
-          <a class="nav-link" href="#" [routerLink]="'.'" data-bs-toggle="collapse"
-             data-bs-target="#submenu">
-            <img class="img img-thumbnail rounded-circle icon" src="assets/img/medical-record.png"
-                 alt="">
-            Parametrage ▾
-          </a>
-        </div>
-        <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="collapse">
-          <ul class="list-unstyled flex-column pl-3">
-            <li class="nav-item submenu"><a class="nav-link" href="#" [routerLink]="'.'">Pays</a>
-            </li>
-            <li class="nav-item submenu"><a class="nav-link" href="#" [routerLink]="'.'">Villes</a>
-            </li>
-            <li class="nav-item submenu"><a class="nav-link" href="#" [routerLink]="'.'">Communes</a>
-            </li>
-            <li class="nav-item submenu"><a class="nav-link" href="#" [routerLink]="'.'">Types
-              Etablissement</a></li>
-            <li class="nav-item submenu"><a class="nav-link" href="#" [routerLink]="'.'">Etablissement</a></li>
-            <li class="nav-item submenu"><a class="nav-link" href="#" [routerLink]="'.'">Medecin</a></li>
-            <li class="nav-item submenu"><a class="nav-link" href="#" [routerLink]="'.'">Spécialités</a></li>
-            <li class="nav-item submenu"><a class="nav-link" href="#" [routerLink]="'.'">Maladies</a>
-            </li>
-            <li class="nav-item submenu"><a class="nav-link" href="#" [routerLink]="'.'">Symptomes</a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <img class="img img-thumbnail rounded-circle icon" src="assets/img/medical-history.png"
-               alt="">
-          Aide
-        </a>
-      </li>
-
-    </ul>
-  </div>
+  </ul>
+</div>

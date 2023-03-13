@@ -1,18 +1,18 @@
 import {Personne} from "./personne";
-import {TypeEtablisssement} from "./type-etablisssement";
+import {TypeEtablissement} from "./type-etablissement";
 import {SpecialiteEtablissement} from "./specialite-etablissement";
 
 export class Etablissement extends Personne {
-   nom: string;
-   autorisationActivite: string;
-   typeEtablissement: TypeEtablisssement;
-   specialiteEtablissementList: SpecialiteEtablissement[];
+  override nom: string;
+  autorisationActivite: string;
+  typeEtablissement: TypeEtablissement;
+  specialiteEtablissementList: SpecialiteEtablissement[];
 
   constructor() {
     super();
     this.nom = "";
     this.autorisationActivite = "";
-    this.typeEtablissement = new TypeEtablisssement();
+    this.typeEtablissement = new TypeEtablissement();
     this.specialiteEtablissementList = [];
   }
 }

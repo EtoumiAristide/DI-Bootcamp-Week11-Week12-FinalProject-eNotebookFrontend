@@ -2,21 +2,20 @@ import {Personne} from "./personne";
 import {TypeCompte} from "./type-compte";
 
 export class CompteUtilisateur {
-   id: number;
-   login: string;
-   password: string;
-   passwordConfirm: string;
-   phraseRecup1: string;
-   reponseRecup1: string;
-   phraseRecup2: string;
-   reponseRecup2: string;
-   phraseRecup3: string;
-   reponseRecup3: string;
-   authentificationDoubleFacteur: boolean;
-   personne: Personne;
-   typeCompte: TypeCompte;
-
-   checkCDU: boolean;
+  id: number;
+  login: string;
+  password: string;
+  passwordConfirm: string;
+  phraseRecup1: string;
+  reponseRecup1: string;
+  phraseRecup2: string;
+  reponseRecup2: string;
+  phraseRecup3: string;
+  reponseRecup3: string;
+  authentificationDoubleFacteur: boolean;
+  personne: Personne;
+  typeCompte: TypeCompte;
+  checkCDU: boolean;
 
 
   constructor() {

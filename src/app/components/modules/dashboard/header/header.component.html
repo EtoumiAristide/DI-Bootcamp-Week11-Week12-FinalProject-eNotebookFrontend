@@ -1,6 +1,6 @@
 <header class="navbar sticky-top navbar-light bg-white  flex-md-nowrap p-0 shadow">
   <div class="container-fluid">
-    <a class="navbar-brand  bg-white col-md-3 col-lg-2 logo" href="#">e-NoteBook Sante</a>
+    <a class="navbar-brand  bg-white col-md-3 col-lg-2 logo" href="#" [routerLink]="'.'">e-NoteBook Sante</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
             aria-label="Toggle navigation"
@@ -25,7 +25,7 @@
            role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" width="32" height="32"
                class="rounded-circle me-2" alt="Black and White Portrait of a Man"/>
-          <span class="pe-2">User Name </span>
+          <span class="pe-2">{{userName}}</span>
         </a>
         <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end dropdown-menu-light border-0 text-small shadow"
             aria-labelledby="navbarDropdownMenuAvatar">

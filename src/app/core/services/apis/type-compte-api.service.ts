@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {ApiRequestService} from "./api-request.service";
-import {url_path} from "../../constants/app.constant";
+import {ApiRequestService} from "../globals/api-request.service";
+import {url_path} from "../../../constants/app.constant";
 
 @Injectable({
   providedIn: 'root'

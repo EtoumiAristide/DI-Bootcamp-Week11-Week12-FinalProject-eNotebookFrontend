@@ -3,8 +3,8 @@ import {Adresse} from "./adresse";
 import {CompteUtilisateur} from "./compte-utilisateur";
 
 export class Physique extends Personne {
-   nom: string;
-   prenoms: string;
+  override nom: string;
+   override prenoms: string;
    dateNaissance: Date;
    lieuNaissance: string;
    nomPrenomPere: string;

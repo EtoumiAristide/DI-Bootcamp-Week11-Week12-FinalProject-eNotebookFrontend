@@ -45,7 +45,7 @@
                     <div class="form-group">
                       <label for="tel1" class="form-label">Numéro de téléphone</label>
                       <div class="input-group">
-                        <input type="text" class="form-control" id="tel1" placeholder="Entrez votre quartier"
+                        <input type="tel" class="form-control" id="tel1" placeholder="Entrez votre quartier"
                                name="tel1" required [(ngModel)]="register.tel" #tel1="ngModel">
                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                       </div>
@@ -90,7 +90,7 @@
                       <label for="passwordConfirm" class="form-label">Confimation de Mot de
                         passe</label>
                       <div class="input-group">
-                        <input type="text" class="form-control" id="passwordConfirm"
+                        <input type="password" class="form-control" id="passwordConfirm"
                                placeholder="Confirmez votre mot de passe" required
                                name="passwordConfirm" [(ngModel)]="register.passwordConfirmation"
                                #passwordConfirm="ngModel">

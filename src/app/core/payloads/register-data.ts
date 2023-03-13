@@ -1,4 +1,4 @@
-import {TypeCompte} from "./type-compte";
+import {TypeCompte} from "../models/type-compte";
 
 export class RegisterData {
   public nom: string;

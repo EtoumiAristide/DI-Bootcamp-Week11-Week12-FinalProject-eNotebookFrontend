@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import {CompteUtilisateur} from "../../../../core/models/compte-utilisateur";
-import {CompteUtilisateurApiService} from "../../../../core/services/compte-utilisateur-api.service";
+import {CompteUtilisateurApiService} from "../../../../core/services/apis/compte-utilisateur-api.service";
 import {TypeCompte} from "../../../../core/models/type-compte";
 import {Physique} from "../../../../core/models/physique";
-import {TypeCompteApiService} from "../../../../core/services/type-compte-api.service";
-import {RegisterData} from "../../../../core/models/register-data";
+import {TypeCompteApiService} from "../../../../core/services/apis/type-compte-api.service";
+import {RegisterData} from "../../../../core/payloads/register-data";
 import {Router} from "@angular/router";
-import {ToastService} from "../../../../core/services/toast.service";
+import {ToastService} from "../../../../core/services/globals/toast.service";
 
 @Component({
   selector: 'app-register',

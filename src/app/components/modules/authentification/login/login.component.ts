@@ -1,8 +1,10 @@
 import {Component} from '@angular/core';
-import {RegisterData} from "../../../../core/models/register-data";
-import {CompteUtilisateurApiService} from "../../../../core/services/compte-utilisateur-api.service";
+import {CompteUtilisateurApiService} from "../../../../core/services/apis/compte-utilisateur-api.service";
 import {Router} from "@angular/router";
-import {ToastService} from "../../../../core/services/toast.service";
+import {ToastService} from "../../../../core/services/globals/toast.service";
+import {LocalStorageService} from "../../../../core/services/globals/local-storage";
+import {CompteUtilisateur} from "../../../../core/models/compte-utilisateur";
+import {LoginData} from "../../../../core/payloads/login-data";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ import {ToastService} from "../../../../core/services/toast.service";
 })
 export class LoginComponent {
 
-  register: RegisterData;
+  loginData: LoginData;
 
   textBtnEnregistrement = {
     txtBtnSave: "Connexion",
@@ -24,9 +26,10 @@ export class LoginComponent {
   constructor(
     private _compteUtilisateurApiService: CompteUtilisateurApiService,
     private _route: Router,
-    private _toastServive: ToastService
+    private _toastServive: ToastService,
+    private _localStorageService: LocalStorageService,
   ) {
-    this.register = new RegisterData();
+    this.loginData = new LoginData();
   }
 
   connecterUser(userForm: any) {
@@ -35,20 +38,24 @@ export class LoginComponent {
     this.loadingBtn = true;
     this.textButton = this.textBtnEnregistrement.textBtnProcessing
     //this.compteUtilisateur.personne = this.physique;
-    console.log(JSON.stringify(this.register));
-    this._compteUtilisateurApiService.login(this.register).subscribe({
+    console.log(JSON.stringify(this.loginData));
+    this._compteUtilisateurApiService.login(this.loginData).subscribe({
       next: response => {
         console.log(response);
-        //Todo: Afficher notification succes
+        const userData: CompteUtilisateur = response as CompteUtilisateur;
+
         this._toastServive.success("Connexion éffecutée avec succès \nRedirection vers la page d'accueil en cours...", "Connexion réussie").onHidden.subscribe(() => {
           this.textButton = this.textBtnEnregistrement.txtBtnSave
           this.loadingBtn = false;
+
+          //Enregistrement de l'objet User dans le Local Storage
+          this._localStorageService.saveData("user", userData);
+
           this._route.navigate(["/dashboard"])
         })
       },
       error: error => {
         console.error("There is an error !", error);
-        //TODO: Afficher toast notification dans le composant en cas d'erreur du serveur lors du chargement
         this._toastServive.error("Login ou mot de passe incorrecte", "Connexion échouée").onHidden.subscribe(() => {
           this.textButton = this.textBtnEnregistrement.txtBtnSave
           this.loadingBtn = false;

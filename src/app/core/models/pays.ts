@@ -1,10 +1,13 @@
 import {Ville} from "./ville";
+import {jsonIgnore} from "json-ignore";
 
 export class Pays {
-   id: number;
-   nom: string;
-   code: string;
-   villeList: Ville[];
+  id: number;
+  nom: string;
+  code: string;
+
+  @jsonIgnore()
+  villeList: Ville[];
 
 
   constructor() {

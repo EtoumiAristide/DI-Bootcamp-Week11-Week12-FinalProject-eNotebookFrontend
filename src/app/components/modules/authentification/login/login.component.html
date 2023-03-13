@@ -19,7 +19,7 @@
                   <div class="input-group">
                     <input type="text" class="form-control" id="login"
                            placeholder="Entrez votre nom d'utilisateur" name="login"
-                           required [(ngModel)]="register.login" #login="ngModel">
+                           required [(ngModel)]="loginData.login" #login="ngModel">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                   </div>
                   <div [hidden]="login.valid || login.pristine" class="alert alert-danger">
@@ -33,7 +33,7 @@
                   <div class="input-group">
                     <input type="password" class="form-control" id="password"
                            placeholder="Entrez votre mot de passe" name="password"
-                           required [(ngModel)]="register.password" #password="ngModel">
+                           required [(ngModel)]="loginData.password" #password="ngModel">
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                   </div>
                   <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
@@ -44,8 +44,9 @@
                 <div class="form-group">
                   <div class="row d-flex align-items-baseline">
                     <div class="col-md-6 align-items-start justify-content-start">
-                      <input type="checkbox" name="rememberMe" id="rememberMe" >
-                      <label for="rememberMe" class="form-label">&nbsp;Se souvenir de moi</label>
+                      <input type="checkbox" name="rememberMe" id="rememberMe" [(ngModel)]="loginData.rememberMe">
+                      <label for="rememberMe" class="form-label">&nbsp;Se souvenir de
+                        moi</label>
                     </div>
                     <div class="col-md-6 d-flex align-items-end justify-content-center">
                       <a href="#">Mot de passe oublié?</a>
